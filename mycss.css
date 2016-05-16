@@ -1,0 +1,17 @@
+.mydiv {
+position: absolute;
+left: 100px;
+top: 100px;
+width: 250px;
+
+padding: 10px;
+opacity: 1;
+font-size: 12px;
+color: rgb(138, 43, 226);
+text-align: left;
+font-family: Verdana, Geneva, sans-serif;
+border-radius: 23px;
+border: 0px solid rgb(0, 0, 0);
+z-index: 999;
+background-color: rgb(255, 192, 203);
+}
