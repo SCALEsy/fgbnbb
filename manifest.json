@@ -14,9 +14,10 @@
 },
 "content_scripts": [{  
          "matches": ["http://*/*","https://*/*"],
-         "css":["mycss.css"],
-         "js": ["jquery-2.1.4.min.js", "myscript.js"],   
+         "css":["mycss.css","./jplayer/test.css"],
+         "js": ["jquery-2.1.4.min.js", "myscript.js","./jplayer/jquery.jplayer.min.js"],   
          "run_at": "document_end",  
          "all_frames": true   
-    }]
+    }],
+"web_accessible_resources": ["jplayer/jquery.jplayer.min.js","jplayer/jquery.min.js","sing.jpg","audio.png"]
 }
