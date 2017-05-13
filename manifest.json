@@ -1,23 +1,31 @@
 {
-"name": "翻滚吧，牛宝宝",
-"version": "1.0",
-"manifest_version":2,
-"description": "this the first plugin by sy.<br>这个插件可以将划线的英文单词翻译为中文,但是没有解决可以用大写字母区分的多个单词，牛宝宝还在努力解决中，by  ---牛宝宝",
-"icons": { "128": "icon.png" },
-"background": {"page":"bg.html"},
-"permissions": ["tabs", "http://*/*","https://*/*"    ],
+    "name": "翻滚吧，牛宝宝",
+    "version": "2.0",
+    "manifest_version": 2,
+    "description": "this the first plugin by sy.<br>这个插件可以将划线的英文单词翻译为中文,但是没有解决可以用大写字母区分的多个单词，牛宝宝还在努力解决中，by  ---牛宝宝",
+    "icons": {
+        "128": "icon.png"
+    },
+    "background": {
+        "page": "bg.html"
+    },
+    "permissions": ["tabs", "http://*/*", "https://*/*"],
 
-"browser_action": {
-"default_title": "翻滚吧，牛宝宝",
-"default_icon": "icon.png",
-"default_popup": "popup.html"
-},
-"content_scripts": [{  
-         "matches": ["http://*/*","https://*/*"],
-         "css":["mycss.css","./jplayer/test.css"],
-         "js": ["jquery-2.1.4.min.js", "myscript.js","./jplayer/jquery.jplayer.min.js"],   
-         "run_at": "document_end",  
-         "all_frames": true   
+    "browser_action": {
+        "default_title": "翻滚吧，牛宝宝",
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "css": ["mycss.css"],
+        "js": ["jquery-2.1.4.min.js", "myscript.js"], 
+        "run_at": "document_end",
+        "all_frames": true
     }],
-"web_accessible_resources": ["jplayer/jquery.jplayer.min.js","jplayer/jquery.min.js","sing.jpg","audio.png"]
+    "web_accessible_resources": ["audio.png"]
 }
+/*
+    eventpage:一种不同于background pagede 页面，注册在content script中，
+    与bg page的区别在于它不是一直在运行，而是在需要的时候在运行，完成后就死亡回收。
+*/

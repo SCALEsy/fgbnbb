@@ -2,91 +2,46 @@ main();
 var txt = null;
 var lasttxt = null;
 var audiourl = null;
+var myAudio = new Audio();
 
-
+//创建document的嵌入页面。。没问题
 function creatediv() {
     var div = document.createElement("div");
     div.id = "fgbnbb";
     div.className = "mydiv";
+
     var text = document.createElement("div");
     text.id = "text";
     text.className = "text";
+
     div.appendChild(text);
+
     var audio = document.createElement("div");
     audio.id = "audio";
     audio.className = "audio";
-    var button=document.createElement("button");
+
+    var button = document.createElement("button");
     //button.type="button";
-    button.id="test";
+    button.id = "test";
     //button.value="sing.jpg";
-    button.className="mybutton";
+    button.className = "mybutton";
     audio.appendChild(button);
-    //audio.innerHTML ="<input type=\"button\" id=\"test\" class=\"mybutton\" value=\"test\"></input>";
+
     div.appendChild(audio);
     return div;
 }
-
-function init() {
-    //add the player script
-    var jplayer = document.createElement("div");
-    jplayer.id = "jplayer";
-    jplayer.className = "jp-jplayer";
-    document.body.appendChild(jplayer);
-    //inject the script code
-    var head = document.getElementsByTagName("head")[0];
-
-    var jquery = document.createElement("script");
-    jquery.src = chrome.extension.getURL("./jplayer/jquery.min.js");
-    jquery.setAttribute("type", "text/javascript");
-    head.appendChild(jquery);
-
-    var jplayerscript = document.createElement("script");
-    jplayerscript.src = chrome.extension.getURL("./jplayer/jquery.jplayer.min.js");
-    jplayerscript.setAttribute("type", "text/javascript");
-    head.appendChild(jplayerscript);
-
-
-
-    //instand the jplayer
-    $("#jplayer").jPlayer({
-        ready: function (event) {
-            $(this).jPlayer("setMedia", {
-                title: "hello",
-                m4a: audiourl,
-                oga: audiourl
-            });
-        },
-        swfPath: "/jplayer",
-        supplied: "m4a, oga",
-        wmode: "window",
-        autoBlur: false,
-        smoothPlayBar: true,
-        keyEnabled: true
-    });
-};
 
 function main() {
     var mydiv = creatediv();
     mydiv.style.display = "none";
     document.body.appendChild(mydiv);
-
-
     $(document).ready(function () {
-        init();
-        //$("#jplayer").jPlayer("play", 0);
-        //这里是button响应的地方
+        //这里是button响应的地方*/
         $("#test").click(function () {
-            $("#jplayer").jPlayer("setMedia", {
-                title: "hello",
-                //m4a: url,
-                m4a: audiourl,
-                oga: audiourl
-            });
-            $("#jplayer").jPlayer("play");
+            myAudio.src = audiourl;
+            myAudio.play();
         });
     });
-
-
 
     document.onmouseup = function (e) {
         e = e || window.event;
@@ -118,15 +73,15 @@ function main() {
     };
     document.onmousedown = function (e) {
         txt = "";
-        
+
         //需要修改元素失去焦点
         var mydivm = document.getElementById("fgbnbb");
-        if (mydivm.style.display=="block") {
+        if (mydivm.style.display == "block") {
             //document.body.removeChild(mydivm);
             //mydivm.style.display = "none";
-            if(!isinclude(e,mydivm)){
-                mydivm.style.display="none";
-                lasttxt="";
+            if (!isinclude(e, mydivm)) {
+                mydivm.style.display = "none";
+                lasttxt = "";
             };
         }
     }
@@ -137,33 +92,30 @@ function main() {
 
         if (keycode == 27) {
             var mydivm = document.getElementById("fgbnbb");
-            if (mydivm.style.display=="block") {
+            if (mydivm.style.display == "block") {
                 mydivm.style.display = "none";
-                lasttxt="";
+                lasttxt = "";
             }
         }
     }
 }
-function isinclude(e,div){
-    e=e||Window.Event;
-    var x=e.clientX;
-    var y=e.clientY;
-    var top=div.offsetTop;
-    var left=div.offsetLeft;
-    var height=div.clientHeight;
-    var width=div.clientWidth;
+
+function isinclude(e, div) {
+    e = e || Window.Event;
+    var x = e.clientX;
+    var y = e.clientY;
+    var top = div.offsetTop;
+    var left = div.offsetLeft;
+    var height = div.clientHeight;
+    var width = div.clientWidth;
     var sh = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    
-    //if(div!=null)alert ("x:"+x+" y:"+y+" top:"+top+" left:"+left+" heght:"+height+" width:"+width+" sh:"+sh);
-    if(x>=left&&x<=(left+width)&&(y+sh)>=(top)&&(y+sh)<=(top+height)){
+    if (x >= left && x <= (left + width) && (y + sh) >= (top) && (y + sh) <= (top + height)) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
-    
-}
 
+}
 
 //只是匹配了是否为英文，可以写成按大小写分开
 function check(string) {
@@ -185,11 +137,7 @@ var funGetSelectTxt = function () {
     return txt.toString();
 };
 
-
-
-
 function showData(data, mydiv) {
-
     settext("");
     switch (data.errorCode) {
         case 0:
