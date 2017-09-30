@@ -1,4 +1,22 @@
-.mydiv {
+/* .mydiv {
+    float: left;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 250px;
+    padding: 10px;
+    opacity: 1;
+    font-size: 12px;
+    color: rgb(138, 43, 226);
+    text-align: left;
+    font-family: Verdana, Geneva, sans-serif;
+    border-radius: 23px;
+    border: 0px solid rgb(0, 0, 0);
+    z-index: 999;
+    background-color: #ffeeab;
+} */
+
+#fgbnbb {
     float: left;
     position: absolute;
     left: 100px;
@@ -17,14 +35,7 @@
 }
 
 
-/*
-
-.mydiv:hover {
-    background-color: #8FBC8F;
-}
-*/
-
-.audio {
+#audio {
     float: right;
     width: 20px;
     height: 20px;
@@ -37,30 +48,15 @@
     background-color: rgb(152, 251, 152);
 }
 
-.text {
+#text {
     float: left;
     width: 200px;
     padding: 2px;
 }
 
-.mybutton{
+#mybutton{
     display: block;
-    float: left;
-    overflow: hidden;
-    text-indent: -9999px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    background: url('chrome-extension://__MSG_@@extension_id__/audio.png') no-repeat;
-    width: 22px;
-    height: 22px;
-    opacity: 1;
-}
-
-/*
-.mydiv button {
-    display: block;
-    float: left;
+    /*float: left;*/
     overflow: hidden;
     text-indent: -9999px;
     border: none;
@@ -69,34 +65,10 @@
     background: url('chrome-extension://__MSG_@@extension_id__/audio.png') no-repeat;
     width: 20px;
     height: 20px;
+    
+   
     opacity: 1;
-}
-*/
-
-
-.jp-audio *:focus,
-.jp-audio-stream *:focus {
-    /* Disable the browser focus highlighting. */
-    outline: none;
+    padding: 0px;
 }
 
-.jp-jplayer audio,
-.jp-jplayer {
-    width: 0px;
-    height: 0px;
-}
 
-.jp-jplayer {
-    background-color: #000000;
-}
-
-.jp-audio {
-    font-size: 16px;
-    font-family: Verdana, Arial, sans-serif;
-    line-height: 1.6;
-    color: #666;
-}
-
-.jp-audio {
-    width: 24px;
-}

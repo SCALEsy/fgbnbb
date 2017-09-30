@@ -8,23 +8,22 @@ var myAudio = new Audio();
 function creatediv() {
     var div = document.createElement("div");
     div.id = "fgbnbb";
-    div.className = "mydiv";
+    //div.className = "mydiv";
 
     var text = document.createElement("div");
     text.id = "text";
-    text.className = "text";
+    //text.className = "text";
 
     div.appendChild(text);
 
     var audio = document.createElement("div");
     audio.id = "audio";
-    audio.className = "audio";
+    //audio.className = "audio";
 
     var button = document.createElement("button");
     //button.type="button";
-    button.id = "test";
-    //button.value="sing.jpg";
-    button.className = "mybutton";
+    button.id = "mybutton";
+    //button.className = "mybutton";
     audio.appendChild(button);
 
     div.appendChild(audio);
@@ -37,7 +36,7 @@ function main() {
     document.body.appendChild(mydiv);
     $(document).ready(function () {
         //这里是button响应的地方*/
-        $("#test").click(function () {
+        $("#mybutton").click(function () {
             myAudio.src = audiourl;
             myAudio.play();
         });
